@@ -26,6 +26,7 @@ class EscapeGameType extends AbstractType
             ->add('happyEndText')
             ->add('gameOverText')
             ->add('user')
+            ->add('solution')
         ;
     }
 

@@ -352,4 +352,7 @@ class EscapeGame
 
         return $this;
     }
+    public function __toString(){
+        return $this->title;
+      }
 }
