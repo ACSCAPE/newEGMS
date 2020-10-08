@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EscapeGame{% endblock %}
+
+{% block body %}
+    <h1>EscapeGame</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ escape_game.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ escape_game.title }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ escape_game.duration ? escape_game.duration|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateTime</th>
+                <td>{{ escape_game.dateTime ? escape_game.dateTime|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>NumberMin</th>
+                <td>{{ escape_game.numberMin }}</td>
+            </tr>
+            <tr>
+                <th>NumberMax</th>
+                <td>{{ escape_game.numberMax }}</td>
+            </tr>
+            <tr>
+                <th>Private</th>
+                <td>{{ escape_game.private ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Excerpt</th>
+                <td>{{ escape_game.excerpt }}</td>
+            </tr>
+            <tr>
+                <th>CategoryName</th>
+                <td>{{ escape_game.categoryName }}</td>
+            </tr>
+            <tr>
+                <th>ResumeText</th>
+                <td>{{ escape_game.resumeText }}</td>
+            </tr>
+            <tr>
+                <th>IntroductionText</th>
+                <td>{{ escape_game.IntroductionText }}</td>
+            </tr>
+            <tr>
+                <th>InstructionsText</th>
+                <td>{{ escape_game.InstructionsText }}</td>
+            </tr>
+            <tr>
+                <th>HappyEndText</th>
+                <td>{{ escape_game.happyEndText }}</td>
+            </tr>
+            <tr>
+                <th>GameOverText</th>
+                <td>{{ escape_game.gameOverText }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('escape_game_index') }}">back to list</a>
+
+    <a href="{{ path('escape_game_edit', {'id': escape_game.id}) }}">edit</a>
+
+    {{ include('escape_game/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EscapeGame index{% endblock %}
+
+{% block body %}
+    <h1>EscapeGame index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Duration</th>
+                <th>DateTime</th>
+                <th>NumberMin</th>
+                <th>NumberMax</th>
+                <th>Private</th>
+                <th>Excerpt</th>
+                <th>CategoryName</th>
+                <th>ResumeText</th>
+                <th>IntroductionText</th>
+                <th>InstructionsText</th>
+                <th>HappyEndText</th>
+                <th>GameOverText</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for escape_game in escape_games %}
+            <tr>
+                <td>{{ escape_game.id }}</td>
+                <td>{{ escape_game.title }}</td>
+                <td>{{ escape_game.duration ? escape_game.duration|date('H:i:s') : '' }}</td>
+                <td>{{ escape_game.dateTime ? escape_game.dateTime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ escape_game.numberMin }}</td>
+                <td>{{ escape_game.numberMax }}</td>
+                <td>{{ escape_game.private ? 'Yes' : 'No' }}</td>
+                <td>{{ escape_game.excerpt }}</td>
+                <td>{{ escape_game.categoryName }}</td>
+                <td>{{ escape_game.resumeText }}</td>
+                <td>{{ escape_game.IntroductionText }}</td>
+                <td>{{ escape_game.InstructionsText }}</td>
+                <td>{{ escape_game.happyEndText }}</td>
+                <td>{{ escape_game.gameOverText }}</td>
+                <td>
+                    <a href="{{ path('escape_game_show', {'id': escape_game.id}) }}">show</a>
+                    <a href="{{ path('escape_game_edit', {'id': escape_game.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('escape_game_new') }}">Create new</a>
+{% endblock %}

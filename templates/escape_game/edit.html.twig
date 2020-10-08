@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit EscapeGame{% endblock %}
+
+{% block body %}
+    <h1>Edit EscapeGame</h1>
+
+    {{ include('escape_game/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('escape_game_index') }}">back to list</a>
+
+    {{ include('escape_game/_delete_form.html.twig') }}
+{% endblock %}

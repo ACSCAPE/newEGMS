@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New EscapeGame{% endblock %}
+
+{% block body %}
+    <h1>Create new EscapeGame</h1>
+
+    {{ include('escape_game/_form.html.twig') }}
+
+    <a href="{{ path('escape_game_index') }}">back to list</a>
+{% endblock %}
