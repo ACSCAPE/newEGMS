@@ -5,19 +5,53 @@
 {% block body %}
 
   <tbody>
+    <div class="dashboard-accueil d-flex">
 
-  <div class="row">
-    <div class=" bg-dark pl-4 pt-5 vh-100 position-fixed">
-      <p class="text-light">Mes escapes games</p>
-      <p class="text-light">Mes prochains escapes games</p>
-      <p class="text-light">Mon historique</p>
-      <p class="text-light">Mes favoris</p>
-      <p class="text-light">Rejoindre un escape game</p>
-      <p class="text-light">Rechercher</p>
+      <nav class="nav-dashboard">
+        <ul class="pt-5">
+          <li>Mes escapes games</li>
+          <li>Mes prochains escapes <br>games</li>
+          <li>Mon historique</li>
+          <li>Mes favoris</li>
+          <li>Rejoindre un escape game</li>
+          <li>Rechercher</li>
+        </ul>
+      </nav>
+
+      <div class="contenu">
+
+        <div class="row">
+          <div class="creation-eg">
+            <h3>Créer un escape game</h3>
+            <img src="/images/The-Escape-Game.jpg" alt="image can you escape">
+          </div>
+
+          <div class="voir-eg pl-5">
+            <h3>Voir mes escapes games</h3>
+            <img src="/images/lamine3.jpg" alt="image la mine">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="participer-eg">
+            <h3>Participer à un escape game</h3>
+            <div class="participer-image">
+              <img src="/images/panoDecoEscapeRoom.jpg" alt="image exemple room">
+              <img src="/images/pendule.jpg" alt="image exemple room">
+              <img src="/images/roommachine.jpg" alt="image exemple room">
+            </div>
+          </div>
+        </div>
+
+      </div>
 
     </div>
-    {# <div class=""> #}
-      <div class="container">
+
+
+
+
+
+      {# <div class="d-flex flex-wrap">
 
       {% for escape_game in escape_games %}
 
@@ -35,11 +69,8 @@
             <li class="list-group-item">Public : {{ escape_game.private ? 'Yes' : 'No' }}</li>
           </ul>
         </div>
-
-      </div>
-
-    </div>
-  </div>
+      {% endfor %}
+      </div> #}
 
 
 
@@ -47,7 +78,10 @@
 
 
 
-    {% endfor %}
+
+
+
+
   </tbody>
 
 
