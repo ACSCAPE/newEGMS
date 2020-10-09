@@ -1,0 +1,43 @@
+body{
+  background-color: white;
+}
+.nav-dashboard{
+  text-transform: uppercase;
+  color: #E7AE4F;
+  background-color: #373737;
+  height: 100vh;
+  width: 18%;
+  border-right: solid 1px #E7AE4F;
+  border-top: solid 1px #E7AE4F;
+}
+.nav-dashboard ul{
+  list-style: none;
+}
+.nav-dashboard ul li{
+  padding-bottom: 5rem;
+  font-size: 1rem;
+}
+
+.dashboard-accueil h3{
+  color: black;
+  font-size: 1.5rem;
+}
+
+.creation-eg , .voir-eg , .participer-eg{
+  margin-top: 3rem;
+  margin-left: 3rem;
+}
+.creation-eg img{
+  width: 40rem;
+}
+.voir-eg img{
+  width: 21.5rem;
+}
+.participer-eg img{
+  width: 20rem;
+  padding-right: 2rem;
+}
+.participer-image{
+  display: flex;
+  justify-content: center;
+}
