@@ -3,57 +3,53 @@
 {% block title %}EscapeGame index{% endblock %}
 
 {% block body %}
-    <h1>EscapeGame index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Duration</th>
-                <th>DateTime</th>
-                <th>NumberMin</th>
-                <th>NumberMax</th>
-                <th>Private</th>
-                <th>Excerpt</th>
-                <th>CategoryName</th>
-                <th>ResumeText</th>
-                <th>IntroductionText</th>
-                <th>InstructionsText</th>
-                <th>HappyEndText</th>
-                <th>GameOverText</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for escape_game in escape_games %}
-            <tr>
-                <td>{{ escape_game.id }}</td>
-                <td>{{ escape_game.title }}</td>
-                <td>{{ escape_game.duration ? escape_game.duration|date('H:i:s') : '' }}</td>
-                <td>{{ escape_game.dateTime ? escape_game.dateTime|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ escape_game.numberMin }}</td>
-                <td>{{ escape_game.numberMax }}</td>
-                <td>{{ escape_game.private ? 'Yes' : 'No' }}</td>
-                <td>{{ escape_game.excerpt }}</td>
-                <td>{{ escape_game.categoryName }}</td>
-                <td>{{ escape_game.resumeText }}</td>
-                <td>{{ escape_game.IntroductionText }}</td>
-                <td>{{ escape_game.InstructionsText }}</td>
-                <td>{{ escape_game.happyEndText }}</td>
-                <td>{{ escape_game.gameOverText }}</td>
-                <td>
-                    <a href="{{ path('escape_game_show', {'id': escape_game.id}) }}">show</a>
-                    <a href="{{ path('escape_game_edit', {'id': escape_game.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="15">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+  <tbody>
 
-    <a href="{{ path('escape_game_new') }}">Create new</a>
+  <div class="row">
+    <div class=" bg-dark pl-4 pt-5 vh-100 position-fixed">
+      <p class="text-light">Mes escapes games</p>
+      <p class="text-light">Mes prochains escapes games</p>
+      <p class="text-light">Mon historique</p>
+      <p class="text-light">Mes favoris</p>
+      <p class="text-light">Rejoindre un escape game</p>
+      <p class="text-light">Rechercher</p>
+
+    </div>
+    {# <div class=""> #}
+      <div class="container">
+
+      {% for escape_game in escape_games %}
+
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+          <div class="card-header"><span class="badge badge-primary">{{ escape_game.categoryName }}</span></div>
+          <div class="card-body">
+            <h4 class="card-title">{{ escape_game.title }}</h4>
+            <p class="card-text">{{ escape_game.excerpt }}</p>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">Date and hours : {{ escape_game.dateTime ? escape_game.dateTime|date('d-m-Y H:i:s') : '' }}</li>
+            <li class="list-group-item">Duration : {{ escape_game.duration ? escape_game.duration|date('H:i:s') : '' }}</li>
+            <li class="list-group-item">Players min : {{ escape_game.numberMin }}</li>
+            <li class="list-group-item">Players max : {{ escape_game.numberMax }}</li>
+            <li class="list-group-item">Public : {{ escape_game.private ? 'Yes' : 'No' }}</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+    {% endfor %}
+  </tbody>
+
+
+
 {% endblock %}
