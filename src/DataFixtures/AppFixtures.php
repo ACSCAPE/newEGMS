@@ -30,7 +30,6 @@ class AppFixtures extends Fixture
           $user->setLastName('Chou'. $p);
           $user->setEmail('jean-mi'. $p.'@mail.com');
           $user->setPassword($this->encoder->encodePassword($user,'azerty'));
-          // $user->setPassword('azerty');
           $user->setPseudo('JM'. $p);
           $manager->persist($user);
 
