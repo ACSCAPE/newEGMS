@@ -7,9 +7,18 @@ use App\Entity\EscapeGame;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 
 class AppFixtures extends Fixture
 {
+
+    private $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder){
+      $this->encoder = $encoder;
+    }
+
     public function load(ObjectManager $manager)
     {
         // $product = new Product();
@@ -18,10 +27,10 @@ class AppFixtures extends Fixture
 
           $user = new User();
           $user->setFirstName('Jean Mi' . $p);
-          $user->setLastName('Chou');
+          $user->setLastName('Chou'. $p);
           $user->setEmail('jean-mi'. $p.'@mail.com');
-          $user->setPassword('azerty');
-          $user->setPseudo('JM');
+          $user->setPassword($this->encoder->encodePassword($user,'azerty'));
+          $user->setPseudo('JM'. $p);
           $manager->persist($user);
 
 
