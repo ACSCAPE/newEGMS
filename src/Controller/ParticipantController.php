@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Participant;
 use App\Form\ParticipantType;
+
+use App\Controller\MailerController;
+use Symfony\Component\Mailer\MailerInterface;
+
 use App\Repository\ParticipantRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,7 +32,7 @@ class ParticipantController extends AbstractController
     /**
      * @Route("/new", name="participant_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, MailerInterface $mailer): Response
     {
         $participant = new Participant();
         $form = $this->createForm(ParticipantType::class, $participant);
@@ -38,6 +42,9 @@ class ParticipantController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($participant);
             $entityManager->flush();
+
+            $mail = new MailerController();
+            $mail->sendEmail($mailer);
 
             return $this->redirectToRoute('participant_index');
         }
