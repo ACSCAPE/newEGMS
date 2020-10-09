@@ -47,4 +47,13 @@ class ParticipantRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findAllEmail()
+    {
+        $participant = new Participant();
+        return $this->createQueryBuilder('p')
+            ->select('p.email')
+            ->getQuery()
+            ->getResult() ;
+    }
 }
