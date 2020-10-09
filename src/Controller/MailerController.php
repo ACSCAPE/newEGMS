@@ -21,7 +21,7 @@ class MailerController extends AbstractController
         }*/
 
         $email = (new Email())
-            ->from('c.bellod@codeur.online')
+            ->from('acscape@codeur.online')
             ->to('acscape21@gmail.com')
             //->cc('cc@example.com')
             //->bcc('bcc@example.com')
