@@ -22,7 +22,7 @@ class MailerController extends AbstractController
 
         $email = (new Email())
             ->from('acscape@codeur.online')
-            ->to('acscape21@gmail.com')
+            ->to('lisa.elyacoubi@gmail.com')
             //->cc('cc@example.com')
             //->bcc('bcc@example.com')
             //->replyTo('fabien@example.com')
